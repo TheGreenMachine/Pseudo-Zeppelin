@@ -3,6 +3,7 @@ package com.edinarobotics.zeppelin;
 
 import com.edinarobotics.utils.gamepad.Gamepad;
 import com.edinarobotics.zeppelin.commands.AutonomousCommand;
+import com.edinarobotics.zeppelin.commands.DriveXInchesNetworkCommand;
 import com.edinarobotics.zeppelin.commands.AutonomousCommand.AutonomousMode;
 import com.edinarobotics.zeppelin.commands.GamepadAugersCommand;
 import com.edinarobotics.zeppelin.commands.GamepadClimberCommand;
@@ -97,7 +98,7 @@ public class Zeppelin extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		autonomousCommand = (Command)chooser.getSelected();
+		autonomousCommand = new DriveXInchesNetworkCommand(12.0);
 		autonomousCommand.start();
 	}
 

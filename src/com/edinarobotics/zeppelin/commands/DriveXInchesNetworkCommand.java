@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.networktables.NetworkTable;
 public class DriveXInchesNetworkCommand extends Command{
 
 	private Drivetrain drivetrain;
-	NetworkTable table;
+	private NetworkTable table;
 	
 	private double initialPosition, target, ticks;
 	private final double rampDownStart = 24;											//inches from the target at which the drivetrain slows down speed
@@ -42,6 +42,7 @@ public class DriveXInchesNetworkCommand extends Command{
 	protected void initialize() {
 		System.out.println("INIT DRIVE X INCHES VISION VIA NETWORK TABLES");
 		
+		table = NetworkTable.getTable("SmartDashboard");
 		initialPosition = drivetrain.getFrontLeftTalon().getEncPosition();
 		target = initialPosition - ticks; //switch when switching encoder direction
 			
@@ -65,8 +66,8 @@ public class DriveXInchesNetworkCommand extends Command{
 
 	@Override
 	protected void execute() {
-		table.putNumber("VisionX", x);
-		table.putNumber("VisionY", y);
+		x = table.getNumber("visionX", -1);
+		y = table.getNumber("visionY", -1);
 		
 		double deltaVision = 320-x;
 		double velocityLeft = 0.33;
@@ -91,6 +92,7 @@ public class DriveXInchesNetworkCommand extends Command{
 			}
 		}
 		
+		drivetrain.setDrivetrainSides(velocityLeft, velocityRight);
 		System.out.println("L Velocity: " + velocityLeft +"  R Velocity: " + velocityRight);
 	}
 
