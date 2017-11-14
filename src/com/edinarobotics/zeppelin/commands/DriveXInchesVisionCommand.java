@@ -2,7 +2,6 @@ package com.edinarobotics.zeppelin.commands;
 
 import com.edinarobotics.zeppelin.Components;
 import com.edinarobotics.zeppelin.subsystems.Drivetrain;
-
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.SerialPort;
 import edu.wpi.first.wpilibj.command.Command;
@@ -57,7 +56,7 @@ public class DriveXInchesVisionCommand extends Command {
 		wiggleCounter = 0;
 		startTime = System.currentTimeMillis();
 		
-		ai = new AnalogInput(2);
+		ai = new AnalogInput(3);
 		
 		
 		ai.setOversampleBits(4);
