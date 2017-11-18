@@ -543,7 +543,7 @@ case CENTER_GEAR_MOBILITY_RIGHT_VISION:
 			case NEW_VISION_AUTO:
 
 				addSequential(new DriveXInchesNetworkCommand(120));
-				addSequential(new DriveXInchesCommand(0.1, .1));
+				addSequential(new DriveXInchesCommand(0.2, .1));
 				addSequential(new OpenThenPunchGearCommand());
 				addSequential(new WaitCommand(0.1));
 				addSequential(new UnpunchCollectorCommand());
