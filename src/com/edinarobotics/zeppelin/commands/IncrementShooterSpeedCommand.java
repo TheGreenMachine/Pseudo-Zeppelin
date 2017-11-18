@@ -22,7 +22,7 @@ public class IncrementShooterSpeedCommand extends Command{
 	protected void initialize(){
 		shooter.addIncrementSpeed(inc);
 		System.out.println(shooter.getIncrementedShooterSpeed());
-		shooter.setShooterTalons(shooter.getIncrementedShooterSpeed(),shooter.getIncrementedShooterSpeed());
+		shooter.setShooterTalons(0,shooter.getIncrementedShooterSpeed());
 	}
 	
 	@Override

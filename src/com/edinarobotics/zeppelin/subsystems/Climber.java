@@ -8,17 +8,21 @@ import edu.wpi.first.wpilibj.command.Command;
 public class Climber extends Subsystem1816{//#maximumkaraoke
 
 	private CANTalon climberTalon;
+	private CANTalon climberTalonTwo;
 	private double climberSpeed;
 	
-	public Climber(int climberTalon){
+	public Climber(int climberTalon, int climberTalonTwo){
 		this.climberTalon = new CANTalon(climberTalon);
+		this.climberTalonTwo = new CANTalon(climberTalonTwo);
 	}
 	
 	@Override
 	public void update() {
 		// TODO Auto-generated method stub
 		climberTalon.set(climberSpeed);
+		climberTalonTwo.set(climberSpeed);
 	}
+
 	
 	public void setClimberMotor(double speed){
 		climberSpeed = speed;

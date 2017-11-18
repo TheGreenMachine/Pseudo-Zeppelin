@@ -23,23 +23,23 @@ public class Components {
 	public Compressor compressor;//boooooooooooooooooooooooooo Jacob sucks
 
 	//Drivetrain constants
-	private static final int FRONT_LEFT_TALON = 2;
+	private static final int FRONT_LEFT_TALON = 5;
 	private static final int FRONT_RIGHT_TALON = 8; //Trent likes big Ds apparently   
 	private static final int BACK_LEFT_TALON = 1;
-	private static final int BACK_RIGHT_TALON = 9;
+	private static final int BACK_RIGHT_TALON = 10;
 	private static final int CENTER_TALON = 3;
 	//End Drivetrain constants
 	
 	//Collector constants
-	private static final int COLLECTOR_TALON = 5; //collector talon!!! whooooohooooooooooooo
-	private static final int GEAR_COLLECTOR_SOLENOID = 5;
-	private static final int GEAR_PUNCHER_SOLENOID = 4;
-	private static final int GEAR_DOORS_SOLENOID = 1;
+	private static final int COLLECTOR_TALON = 50; //collector talon!!! whooooohooooooooooooo
+	private static final int GEAR_COLLECTOR_SOLENOID = 4;
+	private static final int GEAR_PUNCHER_SOLENOID = 1;
+	private static final int GEAR_DOORS_SOLENOID = 5;
 	//End Collector constants
 	
 	//Shooter constants
 	private static final int RIGHT_SHOOTER_TALON = 11;
-	private static final int LEFT_SHOOTER_TALON = 10;
+	private static final int LEFT_SHOOTER_TALON = 99;
 	//End Shooter constants
 	
 	//Augers constants
@@ -48,7 +48,8 @@ public class Components {
 	//End Augers constants
 	
 	//Climber constants
-	private static final int CLIMBER_TALON = 4;
+	private static final int CLIMBER_TALON_ONE = 4;
+	private static final int CLIMBER_TALON_TWO = 2;
 	//End Climber constants
 	
 	//Pneumatic constants
@@ -68,7 +69,7 @@ public class Components {
 		
 		augers = new Augers(LEFT_AUGER_TALON,RIGHT_AUGER_TALON);
 		
-		climber = new Climber(CLIMBER_TALON);
+		climber = new Climber(CLIMBER_TALON_ONE, CLIMBER_TALON_TWO);
 		
 		anchors = new Anchors(ANCHOR_PISTON_SOLENOID, PCM_NODE_ID);
 		

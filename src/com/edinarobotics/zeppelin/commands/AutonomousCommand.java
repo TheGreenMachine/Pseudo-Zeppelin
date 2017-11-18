@@ -8,6 +8,7 @@ public class AutonomousCommand extends CommandGroup {
 		
 		switch(mode) {
 			
+			
 			case CENTER_GEAR_AUTO_RIGHT_BOILER :
 				//experimental end of 10k gear and shoot
 				//5/21/17
@@ -27,7 +28,9 @@ public class AutonomousCommand extends CommandGroup {
 				addSequential(new SetCollectorSpeedCommand(0));
 				addSequential(new DriveXInchesCommand(30,0.9));
 				addSequential(new RotateToAngleCWFromStartCommand(0));
-				addSequential(new DriveXInchesVisionCommand(47.5));
+//				addSequential(new DriveXInchesVisionCommand(47.5));
+				addSequential(new DriveXInchesCommand(47.5,0.8));
+
 
 				addSequential(new WaitCommand(0.4));
 				addSequential(new DriveXInchesCommand(-1.5,0.75));
@@ -84,7 +87,8 @@ public class AutonomousCommand extends CommandGroup {
 				addSequential(new SetCollectorSpeedCommand(0));
 				addSequential(new DriveXInchesCommand(30,0.9));
 				addSequential(new RotateToAngleCWFromStartCommand(0));
-				addSequential(new DriveXInchesVisionCommand(47.5));
+//				addSequential(new DriveXInchesVisionCommand(47.5));
+				addSequential(new DriveXInchesCommand(47.5,0.8));
 
 				addSequential(new WaitCommand(0.4));
 				addSequential(new DriveXInchesCommand(-1.5,0.75));
@@ -290,7 +294,7 @@ public class AutonomousCommand extends CommandGroup {
 				
 			break;	
 				
-			case CENTER_GEAR_MOBILITY_RIGHT:
+case CENTER_GEAR_MOBILITY_RIGHT_VISION:
 				
 				
 				addSequential(new SetGyroZeroCommand());
@@ -333,7 +337,7 @@ public class AutonomousCommand extends CommandGroup {
 				
 				break;
 				
-			case CENTER_GEAR_MOBILITY_LEFT:
+			case CENTER_GEAR_MOBILITY_LEFT_VISION:
 				
 				
 				addSequential(new SetGyroZeroCommand());
@@ -344,6 +348,92 @@ public class AutonomousCommand extends CommandGroup {
 				addSequential(new DriveXInchesCommand(30,0.9));
 				addSequential(new RotateToAngleCWFromStartCommand(0));
 				addSequential(new DriveXInchesVisionCommand(47.5));
+
+				addSequential(new WaitCommand(0.4));
+				addSequential(new DriveXInchesCommand(-1.5,0.75));
+				addSequential(new WaitCommand(0.15));
+
+				addSequential(new OpenThenPunchGearCommand());
+				addSequential(new WaitCommand(0.1));
+				addSequential(new UnpunchCollectorCommand());
+				addSequential(new WaitCommand(0.1));
+				addSequential(new DriveXInchesCommand(-1.5,0.75));
+				addSequential(new WaitCommand(0.75));
+				
+				addSequential(new OpenThenPunchGearCommand());
+				addSequential(new WaitCommand(0.1));
+				addSequential(new UnpunchCollectorCommand());
+				addSequential(new WaitCommand(0.4));
+				
+				addSequential(new OpenThenPunchGearCommand());
+				addSequential(new WaitCommand(0.1));
+				
+				addSequential(new DriveXInchesCommand(-20,0.75));
+				addSequential(new WaitCommand(0.1));
+				addSequential(new UnpunchCollectorCommand());
+				
+				addSequential(new UnpunchThenCloseGearCommand());
+				addSequential(new RotateToAngleCWFromStartCommand(-55));
+				addSequential(new DriveXInchesCommand(120, .9));
+				addSequential(new RotateToAngleCWFromStartCommand(0));
+				addSequential(new DriveXInchesCommand(120, .9));
+				
+				break;
+				
+			case CENTER_GEAR_MOBILITY_RIGHT_NO_VISION:
+				
+				
+				addSequential(new SetGyroZeroCommand());
+				addSequential(new RaiseCenterWheelCommand());
+				addSequential(new SetShooterSpeedCommand(0,0));
+				addSequential(new SetAugerSpeedCommand(0,true));
+				addSequential(new SetCollectorSpeedCommand(0));
+				addSequential(new DriveXInchesCommand(30,0.9));
+				addSequential(new RotateToAngleCWFromStartCommand(0));
+				addSequential(new DriveXInchesCommand(47.5,0.8));
+
+				addSequential(new WaitCommand(0.4));
+				addSequential(new DriveXInchesCommand(-1.5,0.75));
+				addSequential(new WaitCommand(0.15));
+
+				addSequential(new OpenThenPunchGearCommand());
+				addSequential(new WaitCommand(0.1));
+				addSequential(new UnpunchCollectorCommand());
+				addSequential(new WaitCommand(0.1));
+				addSequential(new DriveXInchesCommand(-1.5,0.75));
+				addSequential(new WaitCommand(0.75));
+				
+				addSequential(new OpenThenPunchGearCommand());
+				addSequential(new WaitCommand(0.1));
+				addSequential(new UnpunchCollectorCommand());
+				addSequential(new WaitCommand(0.4));
+				
+				addSequential(new OpenThenPunchGearCommand());
+				addSequential(new WaitCommand(0.1));
+				
+				addSequential(new DriveXInchesCommand(-20,0.75));
+				addSequential(new WaitCommand(0.1));
+				addSequential(new UnpunchCollectorCommand());
+				
+				addSequential(new UnpunchThenCloseGearCommand());
+				addSequential(new RotateToAngleCWFromStartCommand(55));
+				addSequential(new DriveXInchesCommand(120, .9));
+				addSequential(new RotateToAngleCWFromStartCommand(0));
+				addSequential(new DriveXInchesCommand(120, .9));
+				
+				break;
+				
+			case CENTER_GEAR_MOBILITY_LEFT_NO_VISION:
+				
+				
+				addSequential(new SetGyroZeroCommand());
+				addSequential(new RaiseCenterWheelCommand());
+				addSequential(new SetShooterSpeedCommand(0,0));
+				addSequential(new SetAugerSpeedCommand(0,true));
+				addSequential(new SetCollectorSpeedCommand(0));
+				addSequential(new DriveXInchesCommand(30,0.9));
+				addSequential(new RotateToAngleCWFromStartCommand(0));
+				addSequential(new DriveXInchesCommand(47.5,0.8));
 
 				addSequential(new WaitCommand(0.4));
 				addSequential(new DriveXInchesCommand(-1.5,0.75));
@@ -450,17 +540,31 @@ public class AutonomousCommand extends CommandGroup {
 				
 				break;
 				
-			case LEFT_BOILER_MOBILITY:
+			case NEW_VISION_AUTO:
 
-//				addSequential(new DriveXInchesCommand(120,0.65));
+				addSequential(new DriveXInchesNetworkCommand(120));
+				addSequential(new DriveXInchesCommand(0.1, .1));
+				addSequential(new OpenThenPunchGearCommand());
+				addSequential(new WaitCommand(0.1));
+				addSequential(new UnpunchCollectorCommand());
+				addSequential(new WaitCommand(0.1));
+				addSequential(new OpenThenPunchGearCommand());
+				addSequential(new WaitCommand(0.1));
+				addSequential(new UnpunchCollectorCommand());
+				addSequential(new WaitCommand(0.1));
+				addSequential(new OpenThenPunchGearCommand());
+				addSequential(new WaitCommand(0.1));
+				addSequential(new UnpunchCollectorCommand());
+				addSequential(new DriveXInchesCommand(-0.25,0.50));
+				addSequential(new UnpunchThenCloseGearCommand());
 
-				addSequential(new SetShooterSpeedCommand(3800,3800));
-				addSequential(new WaitCommand(0.3));
-				addSequential(new SetAugerSpeedCommand(0.4,true));
-				addSequential(new WaitCommand(10));
-				addSequential(new DriveXInchesCommand(-20, .9));
-				addSequential(new RotateToAngleCWFromStartCommand(-35));
-				addSequential(new DriveXInchesCommand(-80, .9));
+				//addSequential(new SetShooterSpeedCommand(3800,3800));
+				//addSequential(new WaitCommand(0.3));
+				//addSequential(new SetAugerSpeedCommand(0.4,true));
+				//addSequential(new WaitCommand(10));
+				//addSequential(new DriveXInchesCommand(-20, .9));
+				//addSequential(new RotateToAngleCWFromStartCommand(-35));
+				//addSequential(new DriveXInchesCommand(-80, .9));
 				
 				break;
 				
@@ -501,10 +605,12 @@ public class AutonomousCommand extends CommandGroup {
 		RIGHT_GEAR_AUTO,
 		RIGHT_GEAR_RIGHT_BOILER,
 		LEFT_GEAR_LEFT_BOILER,
-		LEFT_BOILER_MOBILITY,
+		NEW_VISION_AUTO,
 		RIGHT_BOILER_MOBILITY,
-		CENTER_GEAR_MOBILITY_LEFT,
-		CENTER_GEAR_MOBILITY_RIGHT,
+		CENTER_GEAR_MOBILITY_LEFT_VISION,
+		CENTER_GEAR_MOBILITY_RIGHT_VISION,
+		CENTER_GEAR_MOBILITY_LEFT_NO_VISION,
+		CENTER_GEAR_MOBILITY_RIGHT_NO_VISION,
 		LEFT_GEAR_MOBILITY,
 		RIGHT_GEAR_MOBILITY,
 		DRIVE_FORWARD,

@@ -14,10 +14,15 @@ public class Shooter extends Subsystem1816{
 	private double rightShooterSpeed = 0.0;	
 	private double incrementedShooterSpeed = 3300;
 	
-	private final double P = 0.013;
-	private final double I = 0.00012;
-	private final double D = 2.0;
-	private final double F = 0.0;
+	private final double P = .5;
+	private final double I = 0;
+	private final double D = 10;
+	private final double F = 0;
+	
+//	private final double P = 0.013;
+//	private final double I = 0.00012;
+//	private final double D = 2.0;
+//	private final double F = 0.0;
 	
 	public Shooter(int rightShooterTalon, int leftShooterTalon){
 		this.rightShooterTalon = new CANTalon(rightShooterTalon);
@@ -62,6 +67,16 @@ public class Shooter extends Subsystem1816{
 	}
 	public CANTalon getLeftShooterTalon(){
 		return leftShooterTalon;
+	}
+	
+	public double getP() {
+		return P;
+	}
+	public double getI() {
+		return I;
+	}
+	public double getD() {
+		return D;
 	}
 	
 }

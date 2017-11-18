@@ -64,8 +64,8 @@ public class Controls {
 			gamepad0.diamondUp().whenPressed(new AnchorRobotCommand());
 			gamepad0.diamondUp().whenReleased(new UnanchorRobotCommand());
 			
-			gamepad0.leftTrigger().whenPressed(new PunchCollectorCommand());
-			gamepad0.leftTrigger().whenReleased(new UnpunchCollectorCommand());
+			//gamepad0.leftTrigger().whenPressed(new PunchCollectorCommand());
+			//gamepad0.leftTrigger().whenReleased(new UnpunchCollectorCommand());
 			
 			gamepad0.diamondDown().whenPressed(new DrivingVisionTrackButtonCommand());
 			gamepad0.diamondDown().whenPressed(new EndDrivingVisionTrackButtonCommand());

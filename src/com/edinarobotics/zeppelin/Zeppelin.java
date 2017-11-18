@@ -1,17 +1,20 @@
 
 package com.edinarobotics.zeppelin;
 
+import com.ctre.CANTalon;
 import com.edinarobotics.utils.gamepad.Gamepad;
 import com.edinarobotics.zeppelin.commands.AutonomousCommand;
 import com.edinarobotics.zeppelin.commands.AutonomousCommand.AutonomousMode;
 import com.edinarobotics.zeppelin.commands.GamepadAugersCommand;
 import com.edinarobotics.zeppelin.commands.GamepadClimberCommand;
 import com.edinarobotics.zeppelin.commands.GamepadDriveCommand;
+import com.edinarobotics.zeppelin.commands.UnpunchThenCloseGearCommand;
 import com.edinarobotics.zeppelin.subsystems.Augers;
 import com.edinarobotics.zeppelin.subsystems.Climber;
 import com.edinarobotics.zeppelin.subsystems.Drivetrain;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -34,11 +37,22 @@ public class Zeppelin extends IterativeRobot {
 	private Drivetrain drivetrain;
 	private Augers augers;
 	private Climber climber;
+	private CANTalon testTalonOne;
+	
+	private Solenoid testSolenoid;
+	
 	
 	@Override
 	public void robotInit() {
 		Controls.getInstance();
 		Components.getInstance();
+		
+		Command closeCommand = new UnpunchThenCloseGearCommand();
+		closeCommand.start();
+		//testSolenoid = new Solenoid(10,4);
+		
+//		testTalonOne = new CANTalon(5);
+		
 		
 		drivetrain = Components.getInstance().drivetrain;
 		augers = Components.getInstance().augers;
@@ -46,20 +60,23 @@ public class Zeppelin extends IterativeRobot {
 		
 		chooser = new SendableChooser<Command>();		
 		
-		chooser.addObject("Center Gear Auto Right Boiler", new AutonomousCommand(AutonomousMode.CENTER_GEAR_AUTO_RIGHT_BOILER));
-		chooser.addObject("Center Gear Auto Left Boiler", new AutonomousCommand(AutonomousMode.CENTER_GEAR_AUTO_LEFT_BOILER));
-		chooser.addObject("Right Gear Auto Right Boiler",new AutonomousCommand(AutonomousMode.RIGHT_GEAR_RIGHT_BOILER));
-		chooser.addObject("Left Gear Auto Left Boiler", new AutonomousCommand(AutonomousMode.LEFT_GEAR_LEFT_BOILER));
-		chooser.addObject("Left Gear Auto", new AutonomousCommand(AutonomousMode.LEFT_GEAR_AUTO));
-		chooser.addObject("Right Gear Auto", new AutonomousCommand(AutonomousMode.RIGHT_GEAR_AUTO));
-		chooser.addObject("Right Boiler Mobility", new AutonomousCommand(AutonomousMode.RIGHT_BOILER_MOBILITY));
-		chooser.addObject("Left Boiler Mobility", new AutonomousCommand(AutonomousMode.LEFT_BOILER_MOBILITY));
-		chooser.addObject("Left Gear Mobility", new AutonomousCommand(AutonomousMode.LEFT_GEAR_MOBILITY));
-		chooser.addObject("Right Gear Mobility", new AutonomousCommand(AutonomousMode.RIGHT_GEAR_MOBILITY));
-		chooser.addDefault("Center Gear Mobility Right", new AutonomousCommand(AutonomousMode.CENTER_GEAR_MOBILITY_RIGHT));
-		chooser.addDefault("Center Gear Mobility Left", new AutonomousCommand(AutonomousMode.CENTER_GEAR_MOBILITY_LEFT));
-		chooser.addObject("Drive", new AutonomousCommand(AutonomousMode.DRIVE_FORWARD));
-		chooser.addObject("Nothing", new AutonomousCommand(AutonomousMode.NOTHING));
+//		chooser.addObject("Center Gear Auto Right Boiler", new AutonomousCommand(AutonomousMode.CENTER_GEAR_AUTO_RIGHT_BOILER));
+//		chooser.addObject("Center Gear Auto Left Boiler", new AutonomousCommand(AutonomousMode.CENTER_GEAR_AUTO_LEFT_BOILER));
+//		chooser.addObject("Right Gear Auto Right Boiler",new AutonomousCommand(AutonomousMode.RIGHT_GEAR_RIGHT_BOILER));
+//		chooser.addObject("Left Gear Auto Left Boiler", new AutonomousCommand(AutonomousMode.LEFT_GEAR_LEFT_BOILER));
+//		chooser.addObject("Left Gear Auto", new AutonomousCommand(AutonomousMode.LEFT_GEAR_AUTO));
+//		chooser.addObject("Right Gear Auto", new AutonomousCommand(AutonomousMode.RIGHT_GEAR_AUTO));
+//		chooser.addObject("Right Boiler Mobility", new AutonomousCommand(AutonomousMode.RIGHT_BOILER_MOBILITY));
+		chooser.addObject("New Vision Auto", new AutonomousCommand(AutonomousMode.NEW_VISION_AUTO));
+//		chooser.addObject("Left Gear Mobility", new AutonomousCommand(AutonomousMode.LEFT_GEAR_MOBILITY));
+//		chooser.addObject("Right Gear Mobility", new AutonomousCommand(AutonomousMode.RIGHT_GEAR_MOBILITY));
+//		chooser.addDefault("Center Gear Mobility Right Vision", new AutonomousCommand(AutonomousMode.CENTER_GEAR_MOBILITY_RIGHT_VISION));
+//		
+//		chooser.addDefault("Center Gear Mobility Left Vision", new AutonomousCommand(AutonomousMode.CENTER_GEAR_MOBILITY_LEFT_VISION));
+//		chooser.addDefault("Center Gear Mobility Right No Vision", new AutonomousCommand(AutonomousMode.CENTER_GEAR_MOBILITY_RIGHT_NO_VISION));
+//		chooser.addDefault("Center Gear Mobility Left No Vision", new AutonomousCommand(AutonomousMode.CENTER_GEAR_MOBILITY_LEFT_NO_VISION));
+//		chooser.addObject("Drive", new AutonomousCommand(AutonomousMode.DRIVE_FORWARD));
+//		chooser.addObject("Nothing", new AutonomousCommand(AutonomousMode.NOTHING));
 		SmartDashboard.putData("Autonomous", chooser);
 	}
 
@@ -91,7 +108,8 @@ public class Zeppelin extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		autonomousCommand = (Command)chooser.getSelected();
+		autonomousCommand = new AutonomousCommand(AutonomousMode.NEW_VISION_AUTO);
+		//autonomousCommand = (Command)chooser.getSelected();
 		autonomousCommand.start();
 	}
 
@@ -109,6 +127,7 @@ public class Zeppelin extends IterativeRobot {
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
+		
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
 		
@@ -126,13 +145,17 @@ public class Zeppelin extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		
+//		testTalonOne.set(.5);
+		//testSolenoid.set(true);
 	}
 
 	/**
 	 * This function is called periodically during test mode
-	 */
+	 */	
 	@Override
 	public void testPeriodic() {
 		LiveWindow.run();
+
 	}
 }

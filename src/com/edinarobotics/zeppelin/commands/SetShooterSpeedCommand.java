@@ -20,6 +20,13 @@ public class SetShooterSpeedCommand extends Command{
 	
 	protected void initialize(){
 		shooter.setShooterTalons(lspeed,rspeed);
+		
+		if(rspeed ==0) {
+			shooter.getRightShooterTalon().setPID(0, 0, 0);
+		}
+		else  {
+			shooter.getRightShooterTalon().setPID(shooter.getP(), shooter.getI(), shooter.getD());
+		}
 	}
 	
 	@Override

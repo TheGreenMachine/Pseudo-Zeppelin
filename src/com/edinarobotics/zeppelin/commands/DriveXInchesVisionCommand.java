@@ -80,6 +80,7 @@ public class DriveXInchesVisionCommand extends Command {
 //		}
 //UNTESTED
 		
+		
 		double deltaVision = 300-x; 	//how many pixels the target is off center		//320 is the center of the camera screen (camera used for vision tracking) in X-coordinates	
 		
 //		double velocityForward = 0.4; COMPETITION
