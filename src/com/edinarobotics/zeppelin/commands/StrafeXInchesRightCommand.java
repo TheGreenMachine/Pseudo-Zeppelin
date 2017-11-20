@@ -17,7 +17,7 @@ public class StrafeXInchesRightCommand extends Command {
 	
 	public StrafeXInchesRightCommand(double inches) {
 		super("drivexinchescommand");
-		drivetrain = Components.getInstance().drivetrain;
+		drivetrain = Components.getInstance().getDrivetrain();
 		ticks = (int)(inches*31.6923);					//OG Zeppelin constants	
 		rampDownValue = rampDownStart*31.6923;
 		requires(drivetrain);

@@ -13,7 +13,7 @@ public class SetAugerSpeedCommand extends Command{
 	
 	public SetAugerSpeedCommand(double speed, boolean button){
 		super("setaugerspeedcommand");
-		this.augers = Components.getInstance().augers;
+		this.augers = Components.getInstance().getAugers();
 		this.augerSpeed = speed;
 		this.button = button;
 		requires(augers);

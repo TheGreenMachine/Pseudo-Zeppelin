@@ -11,7 +11,7 @@ public class EndLeftAugerButtonCommand extends Command{
 	
 	public EndLeftAugerButtonCommand(){
 		super("endleftaugerbuttoncommand");
-		this.augers = Components.getInstance().augers;
+		this.augers = Components.getInstance().getAugers();
 		requires(augers);
 	}
 	

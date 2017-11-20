@@ -20,7 +20,7 @@ public class DriveXRightYForwardInchesCommand extends Command{
 	
 	public DriveXRightYForwardInchesCommand(double inchesRight, double inchesForward){
 		super("drivexrightyforwardinchescommand");
-		this.drivetrain = Components.getInstance().drivetrain;
+		this.drivetrain = Components.getInstance().getDrivetrain();
 		this.inchesForward = inchesForward;
 		this.inchesRight = inchesRight;
 		requires(drivetrain);

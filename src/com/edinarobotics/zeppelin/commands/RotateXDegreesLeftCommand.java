@@ -21,7 +21,7 @@ public class RotateXDegreesLeftCommand extends Command {
 	public RotateXDegreesLeftCommand(double degree, double velocity) {
 		super("rotatexdegreescommand");
 		this.velocity = velocity;
-		drivetrain = Components.getInstance().drivetrain;
+		drivetrain = Components.getInstance().getDrivetrain();
 		this.degree = degree;
 		rampDownValue = ((rampDownStart * 720) * 10) / 13;
 		requires(drivetrain);

@@ -11,7 +11,7 @@ public class EndDrivingVisionTrackButtonCommand extends Command{
 	
 	public EndDrivingVisionTrackButtonCommand() {
 		super("enddrivingvisiontrackbuttoncommand");
-		drivetrain = Components.getInstance().drivetrain;
+		drivetrain = Components.getInstance().getDrivetrain();
 		requires(drivetrain);
 		// TODO Auto-generated constructor stub
 	}

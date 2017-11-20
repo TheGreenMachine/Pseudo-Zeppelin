@@ -40,7 +40,7 @@ public class VisionStrafeCommand extends Command {
 	
 	public VisionStrafeCommand(boolean driverInterruptable, Gamepad gamepad) {
 		super("visionstrafecommand");
-		drivetrain = Components.getInstance().drivetrain;
+		drivetrain = Components.getInstance().getDrivetrain();
 		this.driverInterruptable = driverInterruptable;
 		if(driverInterruptable)
 			this.gamepad = gamepad;

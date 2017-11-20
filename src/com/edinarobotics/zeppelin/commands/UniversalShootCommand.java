@@ -20,10 +20,10 @@ public class UniversalShootCommand extends Command{
 	
 	public UniversalShootCommand(){
 		super("universalshootcommand");
-		this.shooter = Components.getInstance().shooter;
-		this.augers = Components.getInstance().augers;
-		this.anchors = Components.getInstance().anchors;
-		this.collector = Components.getInstance().collector;
+		this.shooter = Components.getInstance().getShooter();
+		this.augers = Components.getInstance().getAugers();
+		this.anchors = Components.getInstance().getAnchors();
+		this.collector = Components.getInstance().getCollector();
 		requires(collector);
 		requires(shooter);
 		requires(augers);

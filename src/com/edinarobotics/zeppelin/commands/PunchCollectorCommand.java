@@ -11,7 +11,7 @@ public class PunchCollectorCommand extends Command{
 	
 	public PunchCollectorCommand() {
 		super("punchcollectorcommand");
-		this.collector = Components.getInstance().collector;
+		this.collector = Components.getInstance().getCollector();
 		requires(collector);
 	}
 	

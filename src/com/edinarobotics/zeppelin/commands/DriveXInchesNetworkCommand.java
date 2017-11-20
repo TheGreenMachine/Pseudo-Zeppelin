@@ -32,7 +32,7 @@ public class DriveXInchesNetworkCommand extends Command{
 	
 	public DriveXInchesNetworkCommand(double inches) {
 		super("drivexinchesnetworkcommand");
-		drivetrain = Components.getInstance().drivetrain;
+		drivetrain = Components.getInstance().getDrivetrain();
 		ticks = -Math.round(((inches * 38*1.018) * 10) / 13);										//conversion from inches to ticks
 		rampDownValue = rampDownStart*31.6923;
 		requires(drivetrain);

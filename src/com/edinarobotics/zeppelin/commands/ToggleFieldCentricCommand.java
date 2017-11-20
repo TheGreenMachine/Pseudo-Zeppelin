@@ -11,7 +11,7 @@ public class ToggleFieldCentricCommand extends Command{
 	
 	public ToggleFieldCentricCommand(){
 		super("togglefieldcentriccommand");
-		this.drivetrain = Components.getInstance().drivetrain;
+		this.drivetrain = Components.getInstance().getDrivetrain();
 		requires(drivetrain);
 	}
 	

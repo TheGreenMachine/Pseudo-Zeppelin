@@ -11,7 +11,7 @@ public class UnpunchCollectorCommand extends Command{
 	
 	public UnpunchCollectorCommand() {
 		super("unpunchcollectorcommand");
-		this.collector = Components.getInstance().collector;
+		this.collector = Components.getInstance().getCollector();
 		requires(collector);
 	}
 	

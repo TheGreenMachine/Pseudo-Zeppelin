@@ -12,7 +12,7 @@ public class WriteToSerialCommand extends Command{
 	
 	public WriteToSerialCommand(String stringSend){
 		super("writetoserialcommand");
-		this.drivetrain = Components.getInstance().drivetrain;
+		this.drivetrain = Components.getInstance().getDrivetrain();
 		this.stringSend = stringSend;
 		requires(drivetrain);
 	}

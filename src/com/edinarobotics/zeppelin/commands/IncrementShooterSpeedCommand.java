@@ -14,7 +14,7 @@ public class IncrementShooterSpeedCommand extends Command{
 	
 	public IncrementShooterSpeedCommand(double inc){
 		super("incrementshooterspeedcommand");
-		this.shooter = Components.getInstance().shooter;
+		this.shooter = Components.getInstance().getShooter();
 		this.inc = inc;
 		requires(shooter);
 	}

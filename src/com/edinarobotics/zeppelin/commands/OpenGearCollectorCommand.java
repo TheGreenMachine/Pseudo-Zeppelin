@@ -11,7 +11,7 @@ public class OpenGearCollectorCommand extends Command{
 	
 	public OpenGearCollectorCommand(){
 		super("opengearcollectorcommand");
-		this.collector = Components.getInstance().collector;
+		this.collector = Components.getInstance().getCollector();
 		requires(collector);
 	}
 	

@@ -12,7 +12,7 @@ public class RunRightAugerCommand extends Command{
 	
 	public RunRightAugerCommand(double speed){
 		super("runrightaugercommand");
-		this.augers = Components.getInstance().augers;
+		this.augers = Components.getInstance().getAugers();
 		this.rightAugerSpeed = speed;
 		requires(augers);
 	}

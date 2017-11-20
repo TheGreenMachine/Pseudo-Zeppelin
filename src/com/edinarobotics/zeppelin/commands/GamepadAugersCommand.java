@@ -13,7 +13,7 @@ public class GamepadAugersCommand extends Command{
 	
 	public GamepadAugersCommand(Gamepad gamepad){
 		super("gamepadaugerscommand");
-		this.augers = Components.getInstance().augers;
+		this.augers = Components.getInstance().getAugers();
 		this.gamepad1 = gamepad;
 		requires(augers);
 	}

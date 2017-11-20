@@ -11,7 +11,7 @@ public class SetGyroZeroCommand extends Command{
 	
 	public SetGyroZeroCommand(){
 		super("setgyrozerocommand");
-		this.drivetrain = Components.getInstance().drivetrain;
+		this.drivetrain = Components.getInstance().getDrivetrain();
 		requires(drivetrain);
 	}
 	

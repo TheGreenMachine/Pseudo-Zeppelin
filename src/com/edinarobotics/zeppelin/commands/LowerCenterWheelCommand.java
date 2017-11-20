@@ -21,7 +21,7 @@ public class LowerCenterWheelCommand extends Command{
 	
 	public LowerCenterWheelCommand(){
 		super("lowercenterwheelcommand");
-		this.drivetrain = Components.getInstance().drivetrain;
+		this.drivetrain = Components.getInstance().getDrivetrain();
 		requires(drivetrain);
 	}
 	

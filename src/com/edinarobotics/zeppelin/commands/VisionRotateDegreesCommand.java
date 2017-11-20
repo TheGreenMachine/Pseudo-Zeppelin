@@ -22,7 +22,7 @@ public class VisionRotateDegreesCommand extends Command{
 	
 	public VisionRotateDegreesCommand() {
 		super("visionrotatedegreescommand");
-		this.drivetrain=Components.getInstance().drivetrain;
+		this.drivetrain=Components.getInstance().getDrivetrain();
 		requires(drivetrain);
 		// TODO Auto-generated constructor stub
 	}

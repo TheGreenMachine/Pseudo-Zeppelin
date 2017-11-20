@@ -45,9 +45,9 @@ public class Zeppelin extends IterativeRobot {
 		Controls.getInstance();
 		Components.getInstance();
 		
-		drivetrain = Components.getInstance().drivetrain;
-		augers = Components.getInstance().augers;
-		climber = Components.getInstance().climber;
+		drivetrain = Components.getInstance().getDrivetrain();
+		augers = Components.getInstance().getAugers();
+		climber = Components.getInstance().getClimber();
 		
 		
 		

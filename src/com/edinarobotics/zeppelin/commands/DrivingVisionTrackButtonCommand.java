@@ -18,7 +18,7 @@ public class DrivingVisionTrackButtonCommand extends Command {
 	
 	public DrivingVisionTrackButtonCommand() {
 		super("drivingvisiontrackbuttoncommand");
-		drivetrain = Components.getInstance().drivetrain;
+		drivetrain = Components.getInstance().getDrivetrain();
 		requires(drivetrain);
 	} 
 	

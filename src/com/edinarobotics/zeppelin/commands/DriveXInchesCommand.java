@@ -21,7 +21,7 @@ public class DriveXInchesCommand extends Command {
 		super("drivexinchescommand");
 		this.velocity = velocity;
 		this.inchTarget = inches;
-		drivetrain = Components.getInstance().drivetrain;
+		drivetrain = Components.getInstance().getDrivetrain();
 		//You should math.round instead of cast you could be off by like .5%.
 //		ticks = (int)(((inches * 41.2*1.018) * 10) / 13);	//32//COMPETITION CARPET CONSTANT				//OG Zeppelin constants	
 		ticks = (int)(((inches * 38*1.018) * 10) / 13);	//29				//OG Zeppelin constants	
@@ -32,16 +32,13 @@ public class DriveXInchesCommand extends Command {
 	@Override
 	protected void initialize() {
 		System.out.println("INIT DRIVE X INCHES");
-		initialPosition = drivetrain.getFrontLeftTalon().getEncPosition();
+		initialPosition = drivetrain.getFrontLeftEncPosition();
 		target = ticks + initialPosition;
 		initialAngle = drivetrain.getGyroAngle();
 		
 		drivetrain.raiseCenterWheel();
 		
-		drivetrain.getBackLeftTalon().enableBrakeMode(true);
-		drivetrain.getBackRightTalon().enableBrakeMode(true);
-		drivetrain.getFrontLeftTalon().enableBrakeMode(true);
-		drivetrain.getFrontRightTalon().enableBrakeMode(true);
+		drivetrain.enableBrakes(true);
 		
 		startTime = System.currentTimeMillis();
 	}
@@ -54,7 +51,7 @@ public class DriveXInchesCommand extends Command {
 		double left, right;
 		
 		if (ticks>0)
-			if ((target - drivetrain.getFrontLeftTalon().getEncPosition()) < rampDownValue) {				//poor
+			if ((target - drivetrain.getFrontLeftEncPosition()) < rampDownValue) {				//poor
 				right = (velocity*.95) * (((deltaDegree) / 50) + 1) / 1.4;								//man's
 				left = velocity * (((-deltaDegree) / 50) + 1) /1.4;										//PID
 			} else {																					//
@@ -62,7 +59,7 @@ public class DriveXInchesCommand extends Command {
 				left = velocity * (((-deltaDegree) / 50) + 1);											//
 			}																							//
 		else
-			if ((target - drivetrain.getFrontLeftTalon().getEncPosition()) > -rampDownValue) {				//poor
+			if ((target - drivetrain.getFrontLeftEncPosition()) > -rampDownValue) {				//poor
 				right = (-velocity*.95) * (((deltaDegree) / 50) + 1) / 1.4;								//man's
 				left = -velocity * (((-deltaDegree) / 50) + 1) / 1.4;										//PID
 			} else {																					//
@@ -84,9 +81,9 @@ public class DriveXInchesCommand extends Command {
 			return true;
 //		System.out.println("Off by: " + (drivetrain.getFrontLeftTalon().getEncPosition() - target));
 		if(ticks>0)
-			return drivetrain.getFrontLeftTalon().getEncPosition() > target;
+			return drivetrain.getFrontLeftEncPosition() > target;
 		else
-			return drivetrain.getFrontLeftTalon().getEncPosition() < target;	
+			return drivetrain.getFrontLeftEncPosition() < target;	
 	}
 
 	@Override

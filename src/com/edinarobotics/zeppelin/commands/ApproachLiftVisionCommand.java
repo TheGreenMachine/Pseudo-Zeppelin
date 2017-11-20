@@ -25,7 +25,7 @@ public class ApproachLiftVisionCommand extends Command{
 	
 	public ApproachLiftVisionCommand(double velocityForward, double velocityStrafe){
 		super("approachliftvisioncommand");
-		this.drivetrain = Components.getInstance().drivetrain;
+		this.drivetrain = Components.getInstance().getDrivetrain();
 		this.velocityForward = velocityForward;
 		this.velocityStrafe = velocityStrafe;
 		requires(drivetrain);

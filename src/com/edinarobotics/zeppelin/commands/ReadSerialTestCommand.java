@@ -18,7 +18,7 @@ public class ReadSerialTestCommand extends Command {
 
 	public ReadSerialTestCommand() {
 		super("readserialtestcommand");
-		this.drivetrain = Components.getInstance().drivetrain;
+		this.drivetrain = Components.getInstance().getDrivetrain();
 		requires(drivetrain);
 	}
 	

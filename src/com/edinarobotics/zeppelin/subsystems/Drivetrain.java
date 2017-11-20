@@ -372,6 +372,17 @@ public class Drivetrain extends Subsystem1816{
 		update();
 	}
 	
+	public int getFrontLeftEncPosition() {
+		return frontLeft.getEncPosition();
+	}
+	
+	public void enableBrakes(boolean flag) {
+		backLeft.enableBrakeMode(flag);
+		backRight.enableBrakeMode(flag);
+		frontLeft.enableBrakeMode(flag);
+		frontRight.enableBrakeMode(flag);
+	}
+	
 	public CANTalon getBackLeftTalon(){
 		return backLeft;
 	}

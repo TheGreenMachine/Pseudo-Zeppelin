@@ -13,7 +13,7 @@ public class GamepadClimberCommand extends Command{
 	
 	public GamepadClimberCommand(Gamepad gamepad){
 		super("gamepadclimbercommand");
-		this.climber = Components.getInstance().climber;
+		this.climber = Components.getInstance().getClimber();
 		this.gamepad = gamepad;
 		requires(climber);
 	}

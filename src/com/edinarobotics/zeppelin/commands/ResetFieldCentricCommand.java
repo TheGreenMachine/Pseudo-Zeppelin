@@ -11,7 +11,7 @@ public class ResetFieldCentricCommand extends Command{
 	
 	public ResetFieldCentricCommand(){
 		super("resetfieldcentriccommand");
-		this.drivetrain = Components.getInstance().drivetrain;
+		this.drivetrain = Components.getInstance().getDrivetrain();
 		requires(drivetrain);
 	}
 	

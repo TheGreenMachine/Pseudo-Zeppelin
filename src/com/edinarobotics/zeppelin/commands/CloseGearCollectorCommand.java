@@ -11,7 +11,7 @@ public class CloseGearCollectorCommand extends Command{
 	
 	public CloseGearCollectorCommand(){
 		super("closegearcollectorcommand");
-		this.collector = Components.getInstance().collector;
+		this.collector = Components.getInstance().getCollector();
 		requires(collector);
 	}
 	

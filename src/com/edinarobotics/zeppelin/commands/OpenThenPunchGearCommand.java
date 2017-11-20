@@ -15,7 +15,7 @@ public class OpenThenPunchGearCommand extends Command{
 	
 	public OpenThenPunchGearCommand() {
 		super("openthenpunchgearcommand");
-		this.collector = Components.getInstance().collector;
+		this.collector = Components.getInstance().getCollector();
 		requires(collector);
 	}
 	

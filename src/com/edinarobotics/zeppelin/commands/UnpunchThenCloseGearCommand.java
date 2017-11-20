@@ -15,7 +15,7 @@ public class UnpunchThenCloseGearCommand extends Command{
 	
 	public UnpunchThenCloseGearCommand() {
 		super("unpunchthenclosegearcommand");
-		this.collector = Components.getInstance().collector;
+		this.collector = Components.getInstance().getCollector();
 		requires(collector);
 	}
 	

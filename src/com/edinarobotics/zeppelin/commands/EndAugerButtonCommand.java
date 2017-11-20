@@ -11,7 +11,7 @@ public class EndAugerButtonCommand extends Command{
 	
 	public EndAugerButtonCommand(){
 		super("endaugerbuttoncommand");
-		this.augers = Components.getInstance().augers;
+		this.augers = Components.getInstance().getAugers();
 		requires(augers);
 	}
 	

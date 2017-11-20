@@ -15,7 +15,7 @@ public class GamepadDriveCommand extends Command{
 	public GamepadDriveCommand(Gamepad gamepad) {
 		// TODO Auto-generated constructor stub
 		super("gamepaddrivecommand");
-		this.drivetrain = Components.getInstance().drivetrain;
+		this.drivetrain = Components.getInstance().getDrivetrain();
 		this.gamepad = gamepad;
 		requires(drivetrain);
 	}

@@ -12,7 +12,7 @@ public class SetShooterSpeedCommand extends Command{
 	
 	public SetShooterSpeedCommand(double lspeed, double rspeed){
 		super("setshooterspeedcommand");
-		this.shooter = Components.getInstance().shooter;
+		this.shooter = Components.getInstance().getShooter();
 		this.lspeed = lspeed;
 		this.rspeed = rspeed;
 		requires(shooter);

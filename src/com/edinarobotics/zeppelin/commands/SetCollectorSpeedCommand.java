@@ -12,7 +12,7 @@ public class SetCollectorSpeedCommand extends Command{
 	
 	public SetCollectorSpeedCommand(double cSpeed){
 		super("setcollectorspeedcommand");
-		this.collector = Components.getInstance().collector;
+		this.collector = Components.getInstance().getCollector();
 		collectorSpeed = cSpeed;
 		requires(collector);
 	}

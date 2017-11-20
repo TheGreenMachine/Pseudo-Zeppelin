@@ -11,7 +11,7 @@ public class AnchorRobotCommand extends Command{
 	
 	public AnchorRobotCommand(){
 		super("anchorrobotcommand");
-		this.anchors = Components.getInstance().anchors;
+		this.anchors = Components.getInstance().getAnchors();
 		requires(anchors);
 	}
 	

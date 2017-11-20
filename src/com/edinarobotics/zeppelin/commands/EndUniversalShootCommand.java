@@ -11,7 +11,7 @@ public class EndUniversalShootCommand extends Command{
 	
 	public EndUniversalShootCommand(){
 		super("enduniversalshootcommand");
-		this.anchors = Components.getInstance().anchors;
+		this.anchors = Components.getInstance().getAnchors();
 		requires(anchors);
 	}
 

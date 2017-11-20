@@ -29,7 +29,7 @@ public class DriveXInchesVisionCommand extends Command {
 	
 	public DriveXInchesVisionCommand(double inches) {
 		super("drivexinchescommand");
-		drivetrain = Components.getInstance().drivetrain;
+		drivetrain = Components.getInstance().getDrivetrain();
 //		ticks = -(int)(((inches * 41.2*1.018) * 10) / 13); //COMPETITION CARPET CONSTANT										//conversion from inches to ticks
 		ticks = -(int)(((inches * 38*1.018) * 10) / 13);										//conversion from inches to ticks
 		rampDownValue = rampDownStart*31.6923;

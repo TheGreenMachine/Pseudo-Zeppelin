@@ -16,7 +16,7 @@ public class RotateToAngleCWFromStartCommand extends Command{
 	
 	public RotateToAngleCWFromStartCommand(double angle){
 		super("rotatetoanglecwfromstartcommand");
-		this.drivetrain = Components.getInstance().drivetrain;
+		this.drivetrain = Components.getInstance().getDrivetrain();
 		this.angle = angle;
 		requires(drivetrain);
 	}

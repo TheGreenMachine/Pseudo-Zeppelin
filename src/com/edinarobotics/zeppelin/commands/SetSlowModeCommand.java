@@ -12,7 +12,7 @@ public class SetSlowModeCommand extends Command{
 	
 	public SetSlowModeCommand(boolean slowmode) {
 		super("setslowmodecommand");
-		drivetrain = Components.getInstance().drivetrain;
+		drivetrain = Components.getInstance().getDrivetrain();
 		this.slowmode = slowmode;
 		requires(drivetrain);
 	}

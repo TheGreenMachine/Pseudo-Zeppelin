@@ -10,17 +10,17 @@ import com.edinarobotics.zeppelin.subsystems.Shooter;
 import edu.wpi.first.wpilibj.Compressor;
 
 public class Components {
-
+	boolean testFlag = false;
 	private static Components instance;//Jacob why r u so disrespectful
 	
-	public Drivetrain drivetrain;
-	public Collector collector;
-	public Shooter shooter;
-	public Augers augers;
-	public Climber climber;
-	public Anchors anchors;
+	private Drivetrain drivetrain;
+	private Collector collector;
+	private Shooter shooter;
+	private Augers augers;
+	private Climber climber;
+	private Anchors anchors;
 	
-	public Compressor compressor;//boooooooooooooooooooooooooo Jacob sucks
+	private Compressor compressor;//boooooooooooooooooooooooooo Jacob sucks
 
 	//Drivetrain constants
 	private static final int FRONT_LEFT_TALON = 2;
@@ -82,5 +82,42 @@ public class Components {
 		}
 		return instance;
 	}
+
+	public static void setInstance(Components components) {
+		instance = components;
+	}
+	
+	public boolean isTestFlag() {
+		return testFlag;
+	}
+
+	public void setTestFlag(boolean testFlag) {
+		this.testFlag = testFlag;
+	}
+
+	public Drivetrain getDrivetrain() {
+		return drivetrain;
+	}
+
+	public Collector getCollector() {
+		return collector;
+	}
+
+	public Shooter getShooter() {
+		return shooter;
+	}
+
+	public Augers getAugers() {
+		return augers;
+	}
+
+	public Climber getClimber() {
+		return climber;
+	}
+
+	public Anchors getAnchors() {
+		return anchors;
+	}
+
 
 }

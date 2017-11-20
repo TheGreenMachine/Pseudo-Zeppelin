@@ -12,7 +12,7 @@ public class RunLeftAugerCommand extends Command{
 	
 	public RunLeftAugerCommand(double speed){
 		super("runleftaugercommand");
-		this.augers = Components.getInstance().augers;
+		this.augers = Components.getInstance().getAugers();
 		this.leftAugerSpeed = speed;
 		requires(augers);
 	}
